@@ -1,0 +1,25 @@
+{
+    "name": "zoneconnect/just-jokes",
+    "description": "A number of funny jokes bro",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Zoneconnect\\JustJokes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zoneconnect\\JustJokes\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kenny James",
+            "email": "kenny@zone-connect.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
