@@ -2,20 +2,31 @@
 
 namespace Zoneconnect\JustJokes\Models;
 
+use GuzzleHttp\Client;
+
 class Joke
 {
+    // move to config
+    const API_ENDPOINT = "https://api.chucknorris.io/jokes/random";
+
+
     public function __construct(
-        protected array $jokes = []
+        protected Client $client
     ) {
     }
 
-    public function getRandomJoke()
+
+    /**
+     * @TODO Refactor/error handling
+     *
+     * @return string
+     */
+    public function getRandomJoke(): string
     {
-        if (empty($this->jokes)) {
+        $data = $this->client->get(self::API_ENDPOINT);
 
-      // fetch list from API/DB
-        }
+        $jokes = json_decode($data->getBody()->getContents());
 
-        return $this->jokes[random_int(0, (count($this->jokes) - 1))];
+        return $jokes->value;
     }
 }
