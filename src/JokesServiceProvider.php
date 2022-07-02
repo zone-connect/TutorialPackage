@@ -3,8 +3,10 @@
 namespace Zoneconnect\JustJokes;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Zoneconnect\JustJokes\Console\Jokes as JokesCommand;
+use Zoneconnect\JustJokes\Http\Controllers\ChuckJokesController;
 
 class JokesServiceProvider extends ServiceProvider
 {
@@ -25,5 +27,11 @@ class JokesServiceProvider extends ServiceProvider
         JokesCommand::class
       ]);
     }
+
+    // Load views
+    $this->loadViewsFrom(__DIR__ . "/../resources/views", "just-jokes");
+
+    // Add package routes
+    Route::get('chuck-jokes', ChuckJokesController::class);
   }
 }

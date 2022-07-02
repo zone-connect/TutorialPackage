@@ -81,4 +81,12 @@ class LaravelJokesCommandTest extends \Orchestra\Testbench\TestCase
     // Need to add  . PHP_EOL b'se info() appends break line by default.
     $this->assertEquals($expectedJoke . PHP_EOL, $output);
   }
+
+
+  /** @test */
+  public function can_access_joke_route()
+  {
+    $this->get('chuck-jokes')
+      ->assertStatus(200);
+  }
 }
