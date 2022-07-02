@@ -87,6 +87,9 @@ class LaravelJokesCommandTest extends \Orchestra\Testbench\TestCase
   public function can_access_joke_route()
   {
     $this->get('chuck-jokes')
+      ->assertViewIs("just-jokes::joke")
+      // Data key only. Can also add the value as second parameter is interested
+      ->assertViewHas("joke")
       ->assertStatus(200);
   }
 }
