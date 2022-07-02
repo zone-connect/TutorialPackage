@@ -24,6 +24,17 @@
     }
   ],
   "require-dev": {
-    "phpunit/phpunit": "^9.5"
-  }
+    "phpunit/phpunit": "^9.5",
+    "orchestra/testbench": "^7.6"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Zoneconnect\\JustJokes\\JokesServiceProvider"
+      ],
+      "aliases": {
+        "Jokes": "Zoneconnect\\JustJokes\\Facade\\Jokes"
+      }
+    }
+  }  
 }

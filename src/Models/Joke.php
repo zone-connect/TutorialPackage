@@ -23,6 +23,10 @@ class Joke
      */
     public function getRandomJoke(): string
     {
+        if (is_null($this->client)) {
+            return "No Joke";
+        }
+
         $data = $this->client->get(self::API_ENDPOINT);
 
         $jokes = json_decode($data->getBody()->getContents());
