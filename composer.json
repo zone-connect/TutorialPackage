@@ -1,7 +1,14 @@
 {
   "name": "zoneconnect/just-jokes",
   "description": "A number of funny jokes bro",
+  "keywords": [
+    "zoneconnect",
+    "jokesapp",
+    "package",
+    "laravel"
+  ],
   "type": "library",
+  "homepage": "https://github.com/zone-connect/TutorialPackage",
   "license": "MIT",
   "require": {
     "php": ">=7.4",
@@ -20,7 +27,9 @@
   "authors": [
     {
       "name": "Kenny James",
-      "email": "kenny@zone-connect.com"
+      "email": "kenny@zone-connect.com",
+      "homepage": "https://zone-connect.com",
+      "role": "Developer"
     }
   ],
   "require-dev": {
@@ -36,5 +45,15 @@
         "Jokes": "Zoneconnect\\JustJokes\\Facade\\Jokes"
       }
     }
-  }  
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/zone-connect"
+    },
+    {
+      "type": "other",
+      "url": "https://zone-connect.com/#contact-digital-marketers"
+    }
+  ]
 }
