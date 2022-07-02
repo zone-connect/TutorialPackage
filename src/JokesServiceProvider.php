@@ -4,6 +4,7 @@ namespace Zoneconnect\JustJokes;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
+use Zoneconnect\JustJokes\Console\Jokes as JokesCommand;
 
 class JokesServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,10 @@ class JokesServiceProvider extends ServiceProvider
 
   public function boot()
   {
-    # code...
+    if ($this->app->runningInConsole()) {
+      $this->commands([
+        JokesCommand::class
+      ]);
+    }
   }
 }
