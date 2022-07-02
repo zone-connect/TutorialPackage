@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Zoneconnect\JustJokes\Models\Joke;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class JokeSeeder extends Seeder
 {
@@ -15,7 +14,7 @@ class JokeSeeder extends Seeder
      */
     public function run()
     {
-        Joke::factory(3)        
+        Joke::factory(3)
         ->create();
     }
 }

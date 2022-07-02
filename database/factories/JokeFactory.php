@@ -2,8 +2,8 @@
 
 namespace Database\Factories\Zoneconnect\JustJokes\Models;
 
-use Zoneconnect\JustJokes\Models\Joke;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Zoneconnect\JustJokes\Models\Joke;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Zoneconnect\JustJokes\Models\Joke>
@@ -17,7 +17,6 @@ class JokeFactory extends Factory
      */
     protected $model = Joke::class;
 
-
     /**
      * Define the model's default state.
      *
@@ -26,7 +25,7 @@ class JokeFactory extends Factory
     public function definition()
     {
         return [
-            'joke' => $this->faker->text()
+            'joke' => $this->faker->text(),
         ];
     }
 }
