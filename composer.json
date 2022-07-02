@@ -16,12 +16,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Zoneconnect\\JustJokes\\": "src/"
+      "Zoneconnect\\JustJokes\\": "src/",
+      "Zoneconnect\\JustJokes\\Database\\": "database/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Zoneconnect\\JustJokes\\Tests\\": "tests/"
+      "Zoneconnect\\JustJokes\\Tests\\": "tests/"      
     }
   },
   "authors": [

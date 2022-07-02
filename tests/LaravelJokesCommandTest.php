@@ -6,6 +6,7 @@ namespace Zoneconnect\JustJokes\Tests;
 use Illuminate\Support\Facades\Artisan;
 use Zoneconnect\JustJokes\Facade\Jokes;
 use Zoneconnect\JustJokes\JokesServiceProvider;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Zoneconnect\JustJokes\Facade\Jokes as JokesFacade;
 
 
@@ -15,6 +16,9 @@ use Zoneconnect\JustJokes\Facade\Jokes as JokesFacade;
  */
 class LaravelJokesCommandTest extends \Orchestra\Testbench\TestCase
 {
+
+  use RefreshDatabase;
+
 
   /**
    * Setup the test environment.
@@ -59,6 +63,17 @@ class LaravelJokesCommandTest extends \Orchestra\Testbench\TestCase
   }
 
 
+  /**
+   * Define database migrations.
+   *
+   * @return void
+   */
+  protected function defineDatabaseMigrations()
+  {
+    $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+  }
+
+
   /** @test */
   public function it_returns_a_joke()
   {
@@ -88,11 +103,29 @@ class LaravelJokesCommandTest extends \Orchestra\Testbench\TestCase
   {
     $prefix = config(\Zoneconnect\JustJokes\JokesServiceProvider::CONFIG_KEY . ".prefix");
     $urlKey = config(\Zoneconnect\JustJokes\JokesServiceProvider::CONFIG_KEY . ".route");
-    
-    $this->get($prefix . $urlKey)    
+
+    $this->get($prefix . $urlKey)
       ->assertViewIs("just-jokes::joke")
       // Data key only. Can also add the value as second parameter is interested
       ->assertViewHas("joke")
       ->assertStatus(200);
+  }
+
+
+  /** @test */
+  public function it_can_access_database()
+  {
+    // seed
+    // \Zoneconnect\JustJokes\Models\Joke::factory(1)->create(); ?????
+
+    // rude approach!
+    $joke = new \Zoneconnect\JustJokes\Models\Joke();
+    $joke->joke = "Watsaap";
+    $joke->save();
+
+    $this->assertDatabaseCount('zc_jokes', 1);
+
+    $newRow = \Zoneconnect\JustJokes\Models\Joke::find($joke->id);
+    $this->assertSame("Watsaap", $newRow->joke);
   }
 }

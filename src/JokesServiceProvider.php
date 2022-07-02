@@ -43,6 +43,13 @@ class JokesServiceProvider extends ServiceProvider
         JokesCommand::class
       ]);
 
+      $this->publishes([
+        __DIR__ . '/../database/migrations' => database_path('migrations'),
+        // Factories apparently need to be in the same directory path as the model.
+        __DIR__ . '/../database/factories' => database_path('factories') . "/Zoneconnect/JustJokes/Models",
+        __DIR__ . '/../database/seeders' => database_path('seeders'),
+      ], 'jokes-migrations');
+
       // To allow developers to customize resources, we need to publish them.. here is how
       // publish this rosource to => specified destination
       $this->publishes([

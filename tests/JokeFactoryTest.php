@@ -53,7 +53,7 @@ class JokeFactoryTest extends TestCase
     {
         $jokeInstance = JokeFactory::create($this->client);
 
-        $this->assertInstanceOf(\Zoneconnect\JustJokes\Models\Joke::class, $jokeInstance);
+        $this->assertInstanceOf(\Zoneconnect\JustJokes\Models\JokeApi::class, $jokeInstance);
     }
 
 

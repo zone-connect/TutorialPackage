@@ -3,12 +3,12 @@
 namespace Zoneconnect\JustJokes;
 
 use GuzzleHttp\Client;
-use Zoneconnect\JustJokes\Models\Joke;
+use Zoneconnect\JustJokes\Models\JokeApi;
 
 class JokeFactory
 {
     public static function create(Client $client = null)
     {
-        return new Joke($client);
+        return new JokeApi($client);
     }
 }
