@@ -2,19 +2,16 @@
 
 namespace Zoneconnect\JustJokes\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Database\Eloquent\Model;
 
 class Joke extends Model
 {
+    use HasFactory;
 
-  use HasFactory;
+    /** @var array */
+    protected $guarded = [];
 
-  /** @var array */
-  protected $guarded = [];
-
-
-  /** @var string */
-  protected $table = "zc_jokes";
+    /** @var string */
+    protected $table = 'zc_jokes';
 }

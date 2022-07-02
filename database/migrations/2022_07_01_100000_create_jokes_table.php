@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
 return new class extends Migration
 {
     /**
@@ -16,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('zc_jokes', function (Blueprint $table) {
             $table->id();
-            $table->string('joke');            
+            $table->string('joke');
             $table->timestamps();
         });
     }
