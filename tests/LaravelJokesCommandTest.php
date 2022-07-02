@@ -86,7 +86,10 @@ class LaravelJokesCommandTest extends \Orchestra\Testbench\TestCase
   /** @test */
   public function can_access_joke_route()
   {
-    $this->get('chuck-jokes')
+    $prefix = config(\Zoneconnect\JustJokes\JokesServiceProvider::CONFIG_KEY . ".prefix");
+    $urlKey = config(\Zoneconnect\JustJokes\JokesServiceProvider::CONFIG_KEY . ".route");
+    
+    $this->get($prefix . $urlKey)    
       ->assertViewIs("just-jokes::joke")
       // Data key only. Can also add the value as second parameter is interested
       ->assertViewHas("joke")
