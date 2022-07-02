@@ -28,8 +28,14 @@ class JokesServiceProvider extends ServiceProvider
       ]);
     }
 
-    // Load views
+    // Load views :; this will tell laravel to use views directly from the package
     $this->loadViewsFrom(__DIR__ . "/../resources/views", "just-jokes");
+
+    // To allow developers to customize resources, we need to publish them.. here is how
+    $this->publishes([
+      // publish this rosource to => specified destination
+      __DIR__ . '/../resources/views' => resource_path('views/vendor/just-jokes')      
+    ]);
 
     // Add package routes
     Route::get('chuck-jokes', ChuckJokesController::class);
